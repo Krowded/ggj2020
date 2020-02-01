@@ -6,6 +6,7 @@ public class Thruster : MonoBehaviour
 {
     public Rigidbody rb;
     public KeyCode togglekey;
+    public Button button;
     Transform t;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class Thruster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(togglekey))
+        if (button.getButtonOn())
         {
             rb.AddForceAtPosition(t.forward * Time.deltaTime * 100, t.position);
         }

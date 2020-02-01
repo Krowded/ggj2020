@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     Transform tf;
     public float movementSpeed;
     public float rotationSpeed;
+    public GameObject floor;
+    public GameObject wall;
 
     void Start()
     {
@@ -35,8 +37,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         forward.Normalize();
-
         tf.position += forward * movementSpeed * Time.deltaTime;
+        tf.localPosition = Vector3.Min(tf.localPosition, new Vector3(3.75f, tf.localPosition.y, 3.75f));
+        tf.localPosition = Vector3.Max(tf.localPosition, new Vector3(-3.75f, tf.localPosition.y, -3.75f));
 
         var angleBetweenForwards = Vector3.Angle(tf.forward, forward);
         angleBetweenForwards -= angleBetweenForwards > 180 ? 180 : 0; 
