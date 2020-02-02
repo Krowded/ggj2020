@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 108
+  button: {fileID: 0}
 --- !u!1 &1029148156100483051
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 102
+  button: {fileID: 0}
 --- !u!1 &2717000403434852407
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 97
+  button: {fileID: 0}
 --- !u!1 &2961893811286478386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 106
+  button: {fileID: 0}
 --- !u!1 &4661795621093790093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 107
+  button: {fileID: 0}
 --- !u!1 &6224987190242356502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 100
+  button: {fileID: 0}
 --- !u!1 &6627610019516835029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 115
+  button: {fileID: 0}
 --- !u!1 &7971457434726373840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,3 +1440,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2961893811286478384}
   togglekey: 59
+  button: {fileID: 0}

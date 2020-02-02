@@ -19,7 +19,6 @@ public class Button : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        Debug.Log(c);
         buttonOn = c.GetComponent<PlayerMovement>() != null ? !buttonOn : buttonOn;
     }
 
