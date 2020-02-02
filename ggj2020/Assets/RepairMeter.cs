@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RepairMeter : MonoBehaviour
 {
+    public Thruster thruster;
+
     [Range(0,1)]
     public float brokenness = 0;
 
@@ -27,6 +29,15 @@ public class RepairMeter : MonoBehaviour
     {
         if (brokenness != lastFrameBrokenness)
         {
+            if (brokenness == 0.0f)
+            {
+                thruster.OnBrokenChange(broken: false);
+            }
+            if (brokenness == 1.0f)
+            {
+                thruster.OnBrokenChange(broken: true);
+            }
+
             lastFrameBrokenness = brokenness;
             float startIntensity = repaired.r + repaired.g + repaired.b;
             float goalIntensity = broken.r + broken.g + broken.b;

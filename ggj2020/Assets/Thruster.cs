@@ -1,50 +1,62 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
     public Rigidbody rb;
-    public KeyCode togglekey;
-    public Button button;
+    public ParticleSystem particles;
+    public ParticleSystem brokenParticles;
+    public RepairInteractor repair;
+
     Transform t;
-    ParticleSystem p;
-    bool particlesOn;
-    // Start is called before the first frame update
+    bool on = false;
+    bool broken = false;
+
+    const float destructionSpeedWhenOn = 0.09f;
+
     void Start()
     {
-        p = GetComponentInChildren<ParticleSystem>();
         t = GetComponent<Transform>();
-        particlesOn = button.getButtonOn();
-        toggleParticles(particlesOn);
-        //rb = GetComponent<Rigidbody>();
+        particles.Stop();
+        brokenParticles.Stop();
     }
 
-    void toggleParticles(bool toggle)
+    void updateParticleSystems()
     {
-        if (toggle)
+        particles.Stop();
+        brokenParticles.Stop();
+
+        if (on || broken)
         {
-            p.Play();
+            repair.destructionSpeed = destructionSpeedWhenOn;
+            var particleSystem = broken ? brokenParticles : particles;
+            particleSystem.Play();
         }
         else
         {
-            p.Stop();
+            repair.destructionSpeed = 0f;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        bool on = button.getButtonOn();
-        if (on != particlesOn)
-        {
-            toggleParticles(on);
-            particlesOn = on;
-        }
-
-        if (on)
+        if (on || broken)
         {
             rb.AddForceAtPosition(t.forward * Time.deltaTime * -30, t.position);
         }
+    }
+
+    public void OnButtonPress(bool buttonOn)
+    {
+        on = buttonOn;
+        if (!broken)
+            updateParticleSystems();
+    }
+
+    public void OnBrokenChange(bool broken)
+    {
+        this.broken = broken;
+        updateParticleSystems();
     }
 }
