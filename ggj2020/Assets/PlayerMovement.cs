@@ -10,6 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject floor;
     public GameObject wall;
 
+    public KeyCode up;
+    public KeyCode down;
+    public KeyCode left;
+    public KeyCode right;
+
     void Start()
     {
         tf = GetComponent<Transform>();
@@ -19,19 +24,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 forward = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(up))
         {
             forward.z += 1;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(down))
         {
             forward.z -= 1;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(left))
         {
             forward.x -= 1;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(right))
         {
             forward.x += 1;
         }
